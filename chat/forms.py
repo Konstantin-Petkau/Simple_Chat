@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
+from .models import Letter
 
 
 '''Форма для входа в аккаунт пользователя '''
@@ -35,4 +36,10 @@ class Register_Form(ModelForm):
 		if commit:
 			user.save()
 		return user
+
+
+class LetterForm(ModelForm):
+	class Meta:
+		model = Letter
+		fields = ['text']
 	
