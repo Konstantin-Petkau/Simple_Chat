@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+'''Модель для сообщений в чате '''
 class Letter(models.Model):
 	text = models.TextField(max_length = 600, verbose_name = 'Текст')
 	author = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = 'Автор')

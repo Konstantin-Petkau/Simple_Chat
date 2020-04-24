@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from .models import Letter
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -13,11 +14,19 @@ class Main(TemplateView):
 	template_name = 'main.html'
 
 
-class Chat(CreateView):
+'''Форма для написания нового сообщения в чате '''
+class Chat(LoginRequiredMixin, CreateView):
 	template_name = 'chat.html'
 	model = Letter
 	form_class = LetterForm
 	success_url = '/chat/'
+
+
+	def form_valid(self, form):
+		self.object = form.save(commit = False)
+		self.object.author = self.request.user
+		self.object.save()
+		return super().form_valid(form)
 
 
 '''Контроллер-класс для входа в аккаунт пользователя '''

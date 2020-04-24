@@ -38,6 +38,7 @@ class Register_Form(ModelForm):
 		return user
 
 
+'''Форма для сообщений в чате '''
 class LetterForm(ModelForm):
 	class Meta:
 		model = Letter
