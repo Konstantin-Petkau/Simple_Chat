@@ -1,0 +1,77 @@
+body{margin: 0; padding: 0; background-color: #C0C0C0}
+.main_div{
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100px;
+	background-color: blue;
+}
+.main_div h1{
+	font-style: italic;
+	color: white;
+	position: absolute;
+	top: 0px; left:40%;
+	font-size: 50px;
+}
+.main_div p{position: absolute; top: 0; right: 0;}
+.main_buttons {
+	position: absolute;
+	top : 200px; left: 25%;
+	height: 300px; width: 700px;
+}
+.account_button{
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	border-radius: 20%;
+	padding:30px;
+	text-align: center;
+}
+.register_button{
+	position: absolute;
+	top:0; left:0;
+	width: 200px;
+	background-color: red;
+}
+.login_button{
+	position: absolute;
+	top:0; right:0;
+	width: 200px;
+	background-color: blue;
+}
+.chat_button{
+	position: absolute;
+	bottom:0; left:17%;
+	width: 400px;
+	background-color: green;
+}
+.account_div{
+	position:absolute;
+	top : 200px; left: 25%;
+	height: 300px; width: 700px;
+}
+.new_letter{
+	position:absolute;
+	top : 200px; left: 10px;
+	height: 300px; width: 700px;
+}
+.logout_chat_button{
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	border-radius: 20%; background-color: red;
+	padding: 20px; width: 100px;
+	text-align: center;
+	position: absolute;
+	right:10px; top: 110px;
+}
+.div_chat{
+	position: absolute;
+	top: 450px; left:10px;
+	background-color: white;
+	width: 88%;
+}
+.div_chat_letter{
+	margin: 50px;
+	width: 85%;
+	border-bottom: 0.5px solid gray;
+}

@@ -1,14 +1,19 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Simple Chat</title>
 	<meta charset = 'utf-8'/>
+	<link rel="stylesheet" type='text/css' href='{% static "style.css" %}'>
 </head>
 <body>
+	<div class = 'main_div'><h1>Simple Chat</h1><p>Made by: Petkau Konstantin</p></div>
 	{%block content%}
-	<a href = '{%url "chat:register"%}'>Регистрация</a>
-	<a href = '{%url "chat:loggin"%}'>Войти</a><br>
-	<a href = '{%url "chat:chat"%}'>Я уже авторизован</a>
+	<div class = 'main_buttons'>
+		<a class = 'account_button register_button'  href = '{%url "chat:register"%}'>Зарегистрироваться</a>
+		<a class = 'account_button login_button'  href = '{%url "chat:loggin"%}'>Войти</a><br>
+		<a class = 'account_button chat_button'  href = '{%url "chat:chat"%}'>Я уже авторизован</a>
+	</div>
 	{%endblock%}
 </body>
 </html>

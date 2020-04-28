@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from .forms import Auth_Form, Register_Form, LetterForm
 from django.contrib.auth.models import User
 from django.views.generic.base import TemplateView
@@ -20,6 +20,12 @@ class Chat(LoginRequiredMixin, CreateView):
 	model = Letter
 	form_class = LetterForm
 	success_url = '/chat/'
+
+
+	def get_context_data(self, *args, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['letter'] = Letter.objects.all()
+		return context
 
 
 	def form_valid(self, form):
@@ -46,3 +52,8 @@ class ProjectRegisterView(CreateView):
 	template_name = 'accounts/register.html'
 	success_url = '/'
 	form_class = Register_Form
+
+
+'''Контроллер-класс для выхода из аккаунта '''
+class ProjectLogoutView(LogoutView):
+	next_page = '/'
