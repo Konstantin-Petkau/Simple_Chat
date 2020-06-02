@@ -1,0 +1,10 @@
+{%extends "main.html"%}
+{%block content%}
+	<div class = 'create_new_room_div'>
+		<form method = 'POST'>
+			{%csrf_token%}
+			{{form.as_p}}
+			<input type = submit value = Создать>
+		</form>
+	</div>
+{%endblock%}

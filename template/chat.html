@@ -1,6 +1,7 @@
 {%extends "main.html"%}
 {%block content%}
 <a class = 'logout_chat_button' href = '{%url "chat:logout"%}'>Выйти</a>
+<a class = 'change_room_button' href = '{%url "chat:rooms_list"%}'>Список комнат</a>
 <div class = 'new_letter'>
 	<form method = 'POST'>
 		{%csrf_token%}

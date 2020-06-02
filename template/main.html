@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type='text/css' href='{% static "style.css" %}'>
 </head>
 <body>
-	<div class = 'main_div'><h1>Simple Chat</h1><p>Made by: Petkau Konstantin</p></div>
+	<div class = 'main_div'><a href = '{%url "chat:main"%}'>Simple Chat</a><p>Made by: Petkau Konstantin</p></div>
 	{%block content%}
 	<div class = 'main_buttons'>
 		<a class = 'account_button register_button'  href = '{%url "chat:register"%}'>Зарегистрироваться</a>

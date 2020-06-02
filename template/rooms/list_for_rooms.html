@@ -1,0 +1,10 @@
+{%extends "main.html"%}
+{%block content%}
+	<a class = 'logout_chat_button' href = '{%url "chat:logout"%}'>Выйти</a>
+	<a class = 'create_room_button' href = '{%url "chat:new_room"%}'>Создать комнату</a>
+	<div class = 'room_list'>
+		{%for room in rooms%}
+			<div class = 'room_list_div'><a class = 'room_list_link' href = '{%url "chat:room_chat" room.id%}'>{{room.name}}</a><p>Автор: {{room.author}}</p></div><br>
+		{%endfor%}
+	</div>
+{%endblock%}

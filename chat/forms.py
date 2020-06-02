@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Letter
+from .models import Letter, Rooms, Letter_For_Room
 
 
 '''Форма для входа в аккаунт пользователя '''
@@ -43,4 +43,15 @@ class LetterForm(ModelForm):
 	class Meta:
 		model = Letter
 		fields = ['text']
-	
+
+'''Форма для создания комнаты '''
+class Create_Room_Form(ModelForm):
+	class Meta:
+		model = Rooms
+		fields = ['name']
+
+'''Форма для написания сообщения в комнате '''
+class Create_Letter_For_Room(ModelForm):
+	class Meta:
+		model = Letter_For_Room
+		fields = ['text']
