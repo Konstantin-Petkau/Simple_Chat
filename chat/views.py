@@ -82,23 +82,23 @@ class Create_Room(CreateView):
 		self.object.save()
 		return super().form_valid(form)
 
-
+'''Контроллер-класс для сообщений в комнатах '''
 class Room_Chat(LoginRequiredMixin, CreateView):
 	template_name = 'rooms/room_chat.html'
 	model = Letter_For_Room
 	form_class = Create_Letter_For_Room
-	success_url = '/'
+	success_url = '/rooms/list'
 
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(**kwargs)
-		context['letter'] = Letter_For_Room.objects.filter(room = Rooms.objects.get(id = 1))
+		context['letter'] = Letter_For_Room.objects.filter(room = Rooms.objects.get(id =  self.kwargs['id']))
 		return context
 
 
 	def form_valid(self, form):
 		self.object = form.save(commit = False)
 		self.object.author = self.request.user
-		self.object.room = Rooms.objects.get(id = 1)
+		self.object.room = Rooms.objects.get(id =  self.kwargs['id'])
 		self.object.save()
 		return super().form_valid(form)

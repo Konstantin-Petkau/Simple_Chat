@@ -18,7 +18,7 @@ class Letter(models.Model):
 	def __str__(self):
 		return str(self.date)
 
-
+'''Модель для комнат'''
 class Rooms(models.Model):
 	author = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = 'Автор')
 	name = models.CharField(max_length = 100, verbose_name = 'Название')
@@ -34,7 +34,7 @@ class Rooms(models.Model):
 	def __str__(self):
 		return str(self.name)
 
-
+'''Модель для сообщений в комнатах '''
 class Letter_For_Room(models.Model):
 	text = models.TextField(max_length = 600, verbose_name = 'Текст')
 	author = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = 'Автор')
@@ -50,4 +50,3 @@ class Letter_For_Room(models.Model):
 
 	def __str__(self):
 		return str(self.date)
-
